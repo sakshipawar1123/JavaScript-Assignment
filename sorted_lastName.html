@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    First-Name:<input type="text" value="xxx" id="fname"><br><br>
+    Last-Name:<input type="text" value="yyy" id="lname"><br><br>
+    Phone_No:<input type="text" value="+91" id="phoneno"><br><br>
+    <input type="button" value="submit" id="btnSubmit">
+    <ul id="list"></ul>
+    <!-- <div id="d1"><h4></h4></div> -->
+    <script>
+        var fname=document.getElementById("fname");
+        var lname=document.getElementById("lname");
+        var phoneno=document.getElementById("phoneno");
+
+        var btnSubmit=document.getElementById("btnSubmit");
+        btnSubmit.addEventListener("click",funSubmit);
+
+        var ul=document.getElementById("list");
+        ul.addEventListener("click",funClick);
+
+       var prodArr=new Array();
+
+           function Data(str1,str2){
+            this.prodName=str1;
+            this.prodLname=str2;
+            }
+            function funSubmit(){
+                var pFname=fname.value;
+                var pLname=lname.value;
+                var obj=new Data(pFname,pLname);
+                console.log(obj);
+                prodArr.push(obj);
+                console.log(prodArr);
+                fname.value="";
+                lname.value="";
+                display();
+            }
+            function display(){
+                var str="";
+              //for sorting the string
+              prodArr.sort(function(a,b){
+                return (a.prodLname).localeCompare(b.prodLname);
+              });
+              for(let i=0;i<prodArr.length;i++){
+                str+="<li>"+prodArr[i].prodName+"*"+prodArr[i].prodLname+"</li>";
+            }
+            ul.innerHTML=str;
+             }
+             function funClick(event){
+               var str=event.target.innerHTML;
+               console.log(str);
+               var arr=str.split("*");
+               fname.value=arr[0];
+               lname.value=arr[1];
+               fname.readOnly=true;
+               lname.readOnly=true;
+
+             }
+               
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    var arr=[10,2,20,10,2];
+    var res=[];
+
+    for(let i=0;i<arr.length;i++){
+        if(res.length==0){
+            res.push(arr[i]);
+        }
+        else{
+            var flag=false;
+        for(let j=0;j<res.length;j++){
+           
+            if(res[j]==arr[i]){
+                flag=true;
+
+            }
+
+        }
+        if(flag==false){
+            res.push(arr[i]);
+        }
+
+    }
+    }
+   // console.log(res);
+   document.write("<br> Remove Duplicates="+res);
+     </script> 
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Find the Second-Largest number in Array</h1>
+    <script>
+        var numbers=[10,20,30,10,20];
+        document.write("<br>Original Array="+numbers);
+        numbers.sort(function(a,b){
+            return a-b;
+        });
+        document.write("<br>Sorted Array is="+numbers);
+        document.write("<br>Second_Largest Number is="+numbers[2]);
+    </script>
+</body>
+</html>

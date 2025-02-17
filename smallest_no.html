@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To find the Smallest  Number in Array</h1>
+    <script>
+    var numbers = [10,20,30,10,20];
+    var smallestNumber = numbers[0];
+
+for (let i=1; i<numbers.length; i++) {
+  if (numbers[i]< smallestNumber) {
+    smallestNumber = numbers[i];
+  }
+}
+
+document.write("The smallest number is:", smallestNumber);
+
+    </script>
+</body>
+</html>

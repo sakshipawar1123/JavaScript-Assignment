@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1,#selectCategory{
+            width:300px;
+            height:200px;
+            background-color: lightblue;
+            border:2px solid black;
+        }
+        table{
+            width:300px;
+            height:200px;
+            border:2px solid black;
+        }
+        #selectCategory{
+            width:300px;
+            height:100px;
+            background-color: lightblue;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Result</h1>
+    <div id="d1">
+        <br>
+        Student Name:<input type="text" placeholder="Enter Your Name" id="txtName"><br><br>
+        marks %:<input type="text" placeholder="Enter your Marks" id="txtMarks"><br><br>
+        Passing Year:<input type="text" placeholder="Enter Passing Year " id="txtYear"><br><br>
+        <input type="button" value="Add" id="btnAdd">
+        <input type="button" value="Student Search" id="btnSearch">
+        </div><br><br>
+    <div id="selectCategory" style="display:none">Choose Category:<br>
+        <label><input type="radio" name="category" value="I class">I class</label>
+        <label><input type="radio" name="category" value="II class">II class</label>
+        <label><input type="radio" name="category" value="All Categories">All Categories</label>
+    </div><br> <br>
+    <table border="2" id="tb1">
+        <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Marks %</th>
+            <th>Passing Year</th>
+        </tr>
+    </table> 
+   
+    <script>
+        var txtName=document.getElementById("txtName");
+        var txtMarks=document.getElementById("txtMarks");
+        var txtYear=document.getElementById("txtYear");
+
+        var btnAdd=document.getElementById("btnAdd");
+        btnAdd.addEventListener("click",funAdd);
+        
+       var btnSearch=document.getElementById("btnSearch");
+       btnSearch.addEventListener("click",funChange);
+
+       var selectCategory=document.getElementById("selectCategory");
+
+       var category=document.getElementsByName("category");
+       //category.addEventListener("click", funCheck);
+
+       var tb=document.getElementById("tb1");
+         var prodArr=new Array();
+
+           function Data(name,mark,year){
+            this.prodName=name;
+            this.prodMark=mark;
+            this.prodYear=year;
+            }
+            function funAdd(){
+                var pName=txtName.value;
+                var pMark=txtMarks.value;
+                var pYear=txtYear.value;
+                var obj=new Data(pName,pMark,pYear);
+               // console.log(obj);
+                prodArr.push(obj);
+               console.log(prodArr);
+               txtName.value="";
+                txtMarks.value="";
+                txtYear.value="";
+               displayData();
+             }
+           function displayData () {
+                 var str = "<tr><th>Sr. No.</th><th>Name</th><th>Marks %</th><th>Passing Year</th></tr>";
+                 for (var i = 0;i<prodArr.length; i++) {
+                    str += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${prodArr[i].prodName}</td>
+                        <td>${prodArr[i].prodMark}</td>
+                        <td>${prodArr[i].prodYear}</td>
+                    </tr>`;
+                 }
+                tb.innerHTML= str;
+            }
+            function funChange(){
+                selectCategory.style.display = "block"; 
+              }  
+
+          function funCheck(category){
+            var categoryData=[];
+             console.log(category);
+             for(let i=0;i<prodArr[i].length;i++){
+                   var filterData=prodArr[i];
+                   if(category==="I class" && filterData.prodMark>=75){
+                        categoryData.push(filterData); 
+                   }
+                   else if(category==="II class" && filterData.prodMark>=50 && filterData.prodMark<75){
+                       categoryData.push(filterData);
+                   }
+                    else{
+                       filterData=prodArr;
+                   }
+
+                }
+
+               selectCategory.innerHTML=categoryData;
+
+               }
+            
+            </script>
+</body>
+</html>

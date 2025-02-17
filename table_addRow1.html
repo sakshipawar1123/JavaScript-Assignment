@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width:150px;
+            height:200px;
+            background-color: lightblue;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+   <h1><u>Student Info</u></h1>
+   <table border="2" id="stuinfo">
+    <tr>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Marks</th>
+    </tr>
+    <tr>
+        <td>01</td>
+        <td>Sakshi</td>
+        <td>90%</td>
+    </tr>
+    <tr>
+        <td>02</td>
+        <td>Sanika</td>
+        <td>80%</td>
+    </tr>
+    <tr>
+        <td>03</td>
+        <td>Reena</td>
+        <td>60%</td>
+    </tr>
+    <tr>
+        <td>04</td>
+        <td>Rutuja</td>
+        <td>70%</td>
+    </tr>
+   </table> <br>
+   <input type="button" value="Add Row" onClick="funAdd()"><br><br>
+   <div id="inputbox" style="display:none">
+    Roll No.:<input type="text" id="txtRoll" placeholder="Enter Roll No."><br><br>
+    Name:<input type="text" id="txtName" placeholder="Enter your name"><br><br>
+    Marks:<input type="text" id="txtMark" placeholder="Enter your Marks"><br><br>
+    <input type="button" value="Insert Row" onClick="funInsert()">
+ </div>
+ <script>
+       var stuinfo=document.getElementById("stuinfo");
+       var inputbox=document.getElementById("inputbox");
+
+       function funAdd(){
+        inputbox.style.display="block";
+       }
+
+       function funInsert(){
+        var txtRoll=document.getElementById("txtRoll").value;
+        var txtName=document.getElementById("txtName").value;
+        var txtMark=document.getElementById("txtMark").value;
+
+        var newRow=document.createElement("tr");
+        var cell1=document.createElement("td");
+        var cell2=document.createElement("td");
+        var cell3=document.createElement("td");
+
+        cell1.textContent=txtRoll;
+        cell2.textContent=txtName;
+        cell3.textContent=txtMark;
+
+        newRow.appendChild(cell1);
+        newRow.appendChild(cell2);
+        newRow.appendChild(cell3);
+
+        stuinfo.appendChild(newRow);
+
+
+       }
+ </script>
+</body>
+</html>

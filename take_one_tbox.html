@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color:red;
+            background-color: lightblue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    Number:<input type="text" id="num1"><br>
+    <input type="button" value="Add" onClick="addNum()">
+    <ul id="ul1">
+
+    </ul>
+    <div id="d1"></div>
+    <script>
+        var d1=document.getElementById("d1");
+        var num1=document.getElementById("num1");
+        var ul=document.getElementById("ul1");
+        var str="";
+       // for(i=0;i<no.length;i++){                 //display the string in list format.
+        //    str+="<li>"+no[i]+"</li>"
+      //  }
+      //  ul.innerHTML=str;
+
+        function addNum(){
+            var no=num1.value;
+            for(i=0;i<5;i++){
+            d1.innerHTML="<br> Array is: "+no;
+            }
+            for(i=0;i<no.length;i++){                 //display the string in list format.
+                str+="<br><li>"+no[i]+"</li>"
+            }
+            ul.innerHTML=str;
+        }
+    </script>
+</body>
+</html>

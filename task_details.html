@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <h1><u>Task Details</u></h1>
+    Enter Task:<input type="text" id="txtTask" placeholder="Enter Your Task"><br><br>
+    <input type="button" value="Add Task" id="btnAdd" onClick="funAdd()"><br><br>
+     <hr>
+    <div id="d1" style="display:none">
+        <table border="2" id="table" width="300" height="350">
+            <tr>
+                <th>Task Name</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var txtTask=document.getElementById("txtTask");
+        var d1=document.getElementById("d1");
+        
+         function funAdd(){
+            d1.style.display = "block";
+            var txtTask1 = txtTask.value;
+            console.log(txtTask1);
+
+            var today = new Date();
+            var month = today.getMonth()+1;
+            var currentDate = today.getDate()+"/"+month+"/"+today.getFullYear();
+            console.log(currentDate);
+
+            var table = document.getElementById("table");
+            var newRow = table.insertRow();
+
+           var taskCell = newRow.insertCell(0);
+            var statusCell = newRow.insertCell(1);
+            var dateCell = newRow.insertCell(2);
+            var actionCell = newRow.insertCell(3);
+
+            
+            taskCell.textContent = txtTask1;
+            dateCell.textContent = currentDate;
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            actionCell.appendChild(checkbox);
+
+            checkbox.addEventListener("change", function() {
+                if (checkbox.checked) {
+                  statusCell.textContent = "Completed";
+                } else {
+                  statusCell.textContent = "Pending";
+                }
+              });
+     }
+     </script>
+</body>
+</html>

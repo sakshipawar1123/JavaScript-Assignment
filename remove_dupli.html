@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          div{
+            width: 300px;
+            height:70px;
+            background-color: lightblue;
+          }
+    </style>
+</head>
+<body>
+    <h1>Remove Duplicates</h1>
+    <div id="d1"></div>
+    <script>
+        var d1=document.getElementById("d1");
+        let a = [ 10, 20, 20, 30, 40, 50, 50 ];
+        // Create set of unique values using Set constructor
+        let s = new Set(a);
+        let a1 = [...s];
+        //console.log(a1);
+        d1.innerHTML+="<br>Original Array is:"+a;
+        d1.innerHTML+="<br>Remove Duplicates array is:"+a1;
+        
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- creates an object containing only unique values. 
+To remove the duplicate elements we can use the set and 
+then convert the object back to array
+ to get the only unique values. -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple JavaScript Pattern</title>
+  <style>
+    body{
+      color:red;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Star Pattern(Right-Angled Traingle)</h1>
+  <input type="button" value="Result" onClick="starPattern()">
+  <div id="d1"></div>
+  <script>
+    var d1=document.getElementById("d1");
+    function starPattern(){
+   for(i=1;i<=5;i++){
+      for(j=1;j<=i;j++){
+        document.write("*");
+      }
+      document.write("<br>");
+    }
+    d1.innerHTML="Pattern is"+starPattern;
+
+  }
+  </script>
+</body>
+</html>

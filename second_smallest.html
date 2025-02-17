@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To find the Second-Smallest number in array</h1>
+    <script>
+        var arr=[50,70,34,76,90,43,89];
+        document.write("<br>Original Array is="+arr);
+
+        arr.sort(function(a,b){
+            return a-b;
+        });
+        document.write("<br>Sorted Array is="+arr);
+
+        document.write("<br>Second-Smallest number is="+arr[1]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Assignment 1 </title>
+  </head>
+  <body>
+
+   Roll No : <input type="text" id="txtRoll" /> <br> <br>
+   Name : <input type="text" id="txtName" /><br> <br> 
+   Password: <input type="password" maxlength="8" minlength="5" id="txtpass"> <br> <br>
+   Mark : <input type="text" id="txtMark" /><br> <br>
+   
+
+  <input type="button" value="click" onclick="funClick()" />
+  <div id="d1"></div>
+
+    <script>
+
+      var Rollno = document.getElementById("txtRoll");
+      var Name = document.getElementById("txtName");
+      var Mark = document.getElementById("txtMark");
+      var Password = document.getElementById("txtpass");
+      var sData = [];  //sData: empty array to store user inputs.
+      var newTable = document.createElement("table"); //to create a new table.
+
+      function funClick() {    //function runs when the button is clicked.
+        sData = [Rollno.value, Name.value, Mark.value, Password.value];   //Collects input values and stores into sData array.            
+        console.log(sData);
+        var newtr = document.createElement("tr");    //creates new table row
+        for (let i = 0; i < sData.length; i++) {
+          //   for (let j = 0; j < sData.length; j++) {
+          var newtd = document.createElement("td");   //createElement:create a new HTML element dynamically
+          newtd.textContent = sData[i];
+          console.log(newtd);
+          newtd.setAttribute("style", "border:1px solid");  //setAttribute:add or change an attribute of an HTML element dynamically.
+          newtr.appendChild(newtd);   //appendChild:add (append) a child element to an existing parent element 
+           //   }
+           newTable.appendChild(newtr);
+          }
+          newTable.setAttribute("style", "border: 1px  solid");
+  
+          document.body.appendChild(newTable);  //Displays the table on the webpage.
+          txtRoll.value="";
+          txtName.value="";
+          txtMark.value="";
+          txtpass.value="";
+        }
+
+      </script>
+   </body>
+  </html>

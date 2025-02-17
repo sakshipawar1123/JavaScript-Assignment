@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Color:<select type="text" id="text1">
+        <option>red</option>
+        <option>blue</option>
+        <option>yellow</option>
+        <option>pink</option>
+        <option>green</option>
+    </select><br>
+    <input type="button" value="click" onClick="funColor()"> <br>
+    <div id="d1">Hello,I am Sakshi Pawar</div><br>
+    <script>
+        var div=document.getElementById("d1");
+        var color=document.getElementById("text1");
+        function funColor(){
+            var colorName=color.value;
+            div.style.backgroundColor=colorName;
+            document.bgColor="lightblue";
+        }
+    </script>
+</body>
+</html>

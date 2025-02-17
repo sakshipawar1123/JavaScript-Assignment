@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks, Percentage and Grade</title>
+</head>
+<body>
+    Name: <input type="text" id="Name"><br><br>
+    marathi:<input type="text" id="english"><br><br>
+    english:<input type="text" id="maths"><br><br>
+    math:<input type="text" id="science"><br><br>
+    <input type="button" value="Display" onclick="display()"><br>
+
+    <!-- DATA DISPLAY -->
+    <div id="d1Name"></div>
+    <div id="d1Marks1"></div>
+    <div id="d1Marks2"></div>
+    <div id="d1Marks3"></div>
+
+    <div id="per"></div>
+    <div id="grade"></div>
+
+    <script>
+
+        // REFERENCES
+        var Name=document.getElementById("Name");
+        var Marks1=document.getElementById("english");
+        var Marks2=document.getElementById("maths");
+        var Marks3=document.getElementById("science");
+        var percentage=document.getElementById("per");
+        var grade=document.getElementById("grade");
+
+        function display(){
+
+            // VALUES FETCHING
+            var name=Name.value;
+            var marks1=Marks1.value;
+            var marks2=Marks2.value;
+            var marks3=Marks3.value;
+            var total=(parseInt(marks1)+parseInt(marks2)+parseInt(marks3));
+            var percentage= total/300*100;
+
+            // DISPLAY FETCHED VALUES
+            d1Name.innerHTML="<br>Name is "+name+"<br><br>Marks of three Subjects :";
+            d1Marks1.innerHTML="<br>english :"+marks1;
+            d1Marks2.innerHTML="<br>maths:"+marks2;
+            d1Marks3.innerHTML="<br>science :"+marks3;
+
+            per.innerHTML="<br>Percentage is:"+percentage;
+
+            // GRADE SECTION
+            if(percentage>=90){
+                grade.innerHTML="<br>Grade is A";
+            }
+            else if(percentage>=70){
+                grade.innerHTML="<br>Grade is B";
+            }
+            else if(percentage>=60){
+                grade.innerHTML="<br>Grade is C";
+            }
+            else if(percentage>=40){
+                grade.innerHTML="<br>Grade is D";
+            }
+            else if(percentage<40){
+                grade.innerHTML="<br>Grade is Fail";
+            }
+            else{
+                grade.innerHTML="<br>Invalid Input";
+            }
+        }
+    </script>
+</body>
+</html>
