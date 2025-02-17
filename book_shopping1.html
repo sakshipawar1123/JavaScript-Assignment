@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style></style>
+    </head>
+    <body>
+       
+        Category:<select id="selCategory" ></select>
+        <ul id="list1"></ul>
+        <p></p>
+        <script>
+            var ul=document.getElementById("list1");
+            var select=document.getElementById("selCategory");
+            select.addEventListener("change",funChange);
+
+            var arr=[{category:"history",bName:"Pawankhind",bPrice:200},
+            {category:"history",bName:"Khosla",bPrice:100},
+            {category:"comic",bName:"Chintoo",bPrice:400},
+            {category:"comic",bName:"Chickoo",bPrice:200},
+            {category:"fiction",bName:"Avengers",bPrice:500}
+            ]
+            function funDrop(){
+                var str="<option></option>";
+                for(let i=0;i<arr.length;i++){
+                    str+="<option>"+arr[i].category+"</option>";
+                }
+                select.innerHTML=str;
+            }
+            funDrop();
+
+            function funChange(){
+                var str="";
+                var selValue=select.value;
+                for(let i=0;i<arr.length;i++){
+                    if(selValue==arr[i].category){
+                        str+="<li><input type=checkbox onchange=funCheck(event) value="+arr[i].bPrice+">"+
+                            arr[i].bName+"*"+arr[i].bPrice+"</li>";
+                    }
+                }
+                ul.innerHTML=str;
+            }
+            var total=0;
+            var p=document.querySelector("p");
+
+            function funCheck(event){
+                var x=event.currentTarget.value;
+                if(event.currentTarget.checked){
+                total=total+parseInt(x);
+               p.innerHTML="Total=<b>"+total+"</b>";
+                }
+                else{
+                    total=total-parseInt(x);
+                    p.innerHTML="Total=<b>"+total+"</b>";
+                }
+           
+            }
+           
+        </script>
+    </body>
+</html>
