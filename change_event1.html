@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:aqua;"></div>
+    <div style="background-color:red;"></div>
+    <div style="background-color:yellow;"></div>
+    <!-- case 2 -->
+     <a href=" " id="a1">Google</a>
+    <script>
+        var arr=document.getElementsByTagName("div");
+        for(let i=0;i<=arr.length;i++){
+            arr[i].addEventListener("mouseover",fun);
+            arr[i].addEventListener("mouseout",fun);
+        }
+        function fun(event){
+            if(event.type=="mouseover"){
+                document.bgColor=event.currentTarget.style.backgroundColor;
+            }
+            else if(event.type=="mouseout"){
+                document.bgColor="transparent";
+            }
+
+        }
+         //Case 2
+         var a=document.getElementById("a1");
+         a.addEventListener("click",funLink);
+          function funLink(event){
+            alert(event.defaultPrevented); //False
+            event.preventDefault();
+            console.log("Link cliked!!");
+            alert(event.defaultPrevented); //True
+          }
+
+        
+    </script>
+    
+</body>
+</html>

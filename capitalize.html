@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternate Case</title>
+</head>
+<body>
+  <h1>Alternate Capitalize  String</h1>
+  <p>Input: <strong>bitcode</strong></p>
+  <p>Output: <span id="output"></span></p>
+
+  <script>
+    function alternateCase(input) {
+      let result =" ";
+      for (let i = 0; i < input.length; i++) {
+        
+        result += i % 2 === 0 ? input[i].toUpperCase() : input[i].toLowerCase();
+      }
+      return result;
+    }
+     const inputString = "bitcode";
+    const outputString = alternateCase(inputString);
+    document.getElementById("output").textContent = outputString;
+  </script>
+</body>
+</html>

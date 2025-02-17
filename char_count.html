@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Count of the Character</h1>
+    <script>
+        	
+var str="javaaa";
+//o/p:j=1 a=2,v=1
+var count=0;
+var arr=[];
+for(i=0;i<str.length;i++){
+    count=1;
+  for(let j=i+1;j<str.length;j++){
+    if(str[i]==str[j]){
+        count++;
+        arr[j]=-1;
+    }
+  }
+  if(arr[i]!=-1){
+  arr[i]=count;
+  }
+ 
+}
+console.log(arr);
+for(let ind=0;ind<str.length;ind++){
+    if(arr[ind]!=-1){
+        document.write("<br>"+str[ind]+"="+arr[ind])
+    }
+}
+
+</script>
+    
+</body>
+</html>

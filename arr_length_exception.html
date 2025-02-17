@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Exception Handling</title>
+</head>
+<body>
+    <h3>Enter a number to add to the array:</h3>
+    <input type="number" id="num">
+    <button onclick="addNumber()">Add Number</button>
+    <p id="result"></p>
+
+    <script>
+        var arr = []; 
+        function addNumber() {
+            try {
+                var num = parseInt(document.getElementById("num").value);
+
+                if (num < 0) {
+                    throw "Negative numbers are not allowed!";
+                }
+                
+                if (arr.length >= 5) {
+                    throw "Array is full! You cannot add more than 5 elements.";
+                }
+
+                arr.push(num); 
+                document.getElementById("result").innerText = "Array: " + arr.join(", ");
+            } catch (error) {
+                alert(error); // Show error message
+            }
+        }
+    </script>
+</body>
+</html>

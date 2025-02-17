@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://dummyjson.com/products" method="get">
+      <input type="submit" value="Products" />
+    </form>
+    <input type="button" value="Get All Products" onclick="funProducts()">
+    <div id="d1"></div>
+     <script>
+      //AJAX
+      var d1=document.getElementById("d1");
+      function funProducts(){
+          var xml=new XMLHttpRequest();
+          xml.open("get","https://dummyjson.com/products");
+          xml.send();
+          xml.onreadystatechange=function(){
+              if(xml.readyState==4 && xml.status==200){
+                  var response=xml.responseText;
+                 
+                  var result=JSON.parse(response);
+                  console.log(result.products[0].title);
+                  var arr=result.products;
+                  display(arr);
+              }
+          }
+      }
+      function display(arr){
+          var str="";
+          for(let i=0;i<arr.length;i++){
+              str+="<br>"+arr[i].id+"--"+arr[i].title;
+          }
+          d1.innerHTML=str;
+      }
+     </script>
+
+  </body>
+</html>

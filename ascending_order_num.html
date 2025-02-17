@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Numbers</title>
+</head>
+<body>
+    <input type="text" id="numbers" placeholder="Enter numbers">
+    <button onclick="sortNumbers()">Sort</button>
+    <p id="result"></p>
+
+    <script>
+        function sortNumbers() {
+            var input = document.getElementById("numbers").value;
+            var numbersArray = input.split(","); 
+            var numList = [];
+
+            for (var i=0; i<numbersArray.length; i++) {
+                numList[i] = parseInt(numbersArray[i]);
+            }
+              numList.sort(); 
+             document.getElementById("result").innerText = "Ascending Order: " + numList.join(", ");
+        }
+    </script>
+</body>
+</html>

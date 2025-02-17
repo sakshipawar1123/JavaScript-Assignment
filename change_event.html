@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            border:2px solid black;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="d1" style="background-color:lightblue">This is Div1</div><br> 
+    <div id="d2" style="background-color:lightcoral">This is Div2</div><br>
+    <div id="d3" style="background-color:lightgreen">This is Div3</div><br>
+    <script>
+        var div1=document.getElementById("d1"); //handler
+        var div2=document.getElementById("d2");
+        var div3=document.getElementById("d3");
+
+        div1.addEventListener("mouseover",funClick);
+        div2.addEventListener("mouseover",funClick);
+        div3.addEventListener("mouseover",funClick);
+
+        div1.addEventListener("mouseout",funClick1);
+        div2.addEventListener("mouseout",funClick1);
+        div3.addEventListener("mouseout",funClick1);
+
+        function funClick(event){
+            var x=event.currentTarget;
+            console.log(x.style.backgroundColor);
+            console.log(x.id);
+            //event delegation
+            switch(x.id){
+                case "d1":
+                document.bgColor=x.style.backgroundColor;
+                break;
+    
+                case "d2":
+                document.bgColor=x.style.backgroundColor;
+                break;
+    
+                case "d3":
+                document.bgColor=x.style.backgroundColor;
+                break;
+                
+                default:
+                console.log("Invalid Value");
+               }
+            }
+
+            function funClick1(event1){
+                var y=event1.currentTarget;
+                console.log(y);
+    
+                //event delegation
+                switch(y.id){
+                    case "d1":
+                    document.bgColor="Transparent";
+                    break;
+                    
+                    case "d2":
+                   document.bgColor="Transparent";
+                    break;
+        
+                    case "d3":
+                   document.bgColor="Transparent";
+                    break;
+                    
+                    default:
+                    console.log("Invalid Value");
+                   }
+                }
+            
+        
+
+
+
+
+    </script>
+</body>
+</html>
