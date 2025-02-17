@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Number Checker</title>
+</head>
+<body>
+    <h2>Magic Number Checker</h2>
+    <input type="text" id="txtNum" placeholder="Enter a number" />
+    <button onclick="checkMagicNumber()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkMagicNumber() {
+            let num = parseInt(document.getElementById("txtNum").value);
+
+            // Keep summing digits until we get a single-digit number
+            while (num > 9) {
+                num = sumOfDigits(num);
+            }
+
+            // Display result
+            if (num === 1) {
+                document.getElementById("result").innerText = "Magic Number";
+            } else {
+                document.getElementById("result").innerText = "Not a Magic Number";
+            }
+        }
+
+        function sumOfDigits(num) {
+            let sum = 0;
+            while (num > 0) {
+                sum += num % 10; // Add last digit
+                num = Math.floor(num / 10); // Remove last digit
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>

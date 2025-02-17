@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width:50px;
+        }
+        img{
+            width:200px;
+            height:200px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Images</u></h1>
+    <img src="" id="img1">
+    <br> <br>
+    <hr>
+    <div id="d2">
+        <input type="button" value="Start" onClick="funStart()" id=>
+        <input type="button" value="Stop" onClick="funStop()">
+        <input type="button" value="Slow" onClick="funSlow()">
+        <input type="button" value="Fast" onClick="funFast()">
+    </div>
+    <script>
+       // var d1=document.getElementById("d1");
+        var img1 = document.getElementById("img1");
+        var images = ["img1.png" , "img2.png" , "img3.png", "paper.png"];
+        var i=0;
+        function apply(){
+            img1.src=images[i];
+            i++;
+            if(i==images.length){
+                i=0;
+            }
+        }
+        function funStart(){
+            si=setInterval("apply()",1000);    
+        }
+        function funStop(){
+            clearInterval(si);                 
+        }
+        function funSlow(){
+            si=setInterval("apply()",4000);
+        }
+        function funFast(){
+            si=setInterval("apply()",50);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:400px;
+            background-color: lightblue;
+        }
+        ul{
+            width:100px;
+            height:100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="productName" placeholder="Enter Product Name" value="xxx"><br><br>
+    <input type="number" id="productPrice" placeholder="Enter Price" value="000"><br><br>
+    <input type="button" value="ADD" id="btnAdd">
+    <input type="button" value="Update" id="btnUpdate">
+    <input type="button" value="Delete" id="btnDelete">
+    <input type="button" value="Add to Cart" id="btnAddCart">
+    <ul id="list"></ul>
+
+    <div id="d1"><h4>Your Cart:</h4></div>
+    <p id="p1"></p>
+    <script>
+           var ul=document.getElementById("list");
+           ul.addEventListener("click",funClick);
+
+           var btnUpdate=document.getElementById("btnUpdate");
+           btnUpdate.addEventListener("click",funUpdate);
+
+           var btnAdd=document.getElementById("btnAdd");
+           btnAdd.addEventListener("click",funAdd);
+
+           var btnDelete=document.getElementById("btnDelete");
+           btnDelete.addEventListener("click",funDelete);
+
+           var btnAddCart=document.getElementById("btnAddCart");
+           btnAddCart.addEventListener("click",funAddCart);
+
+           var d1=document.getElementById("d1");
+           var p1=document.getElementById("p1");
+
+           var txtName=document.getElementById("productName");
+           var txtPrice=document.getElementById("productPrice");
+          
+           var prodArr=new Array();
+
+           function Product(str,price){
+            this.prodName=str;
+            this.prodPrice=price;
+            
+           }
+           function funAdd(){
+            var pName=txtName.value;
+            var pPrice=txtPrice.value;
+            //var obj={prodName:pName,prodPrice:pPrice};
+            var obj=new Product(pName,pPrice);
+            console.log(obj);
+            prodArr.push(obj);
+            console.log(prodArr);
+            txtName.value="";
+            txtPrice.value="";
+            display();
+
+           }
+           function display(){
+            var str="";
+          
+          //for sorting the Price
+          //prodArr.sort(function(a,b){
+          //return a.prodPrice-b.prodPrice;
+         // });
+
+          //for sorting the string
+          prodArr.sort(function(a,b){
+            return (a.prodName).localeCompare(b.prodName);
+          });
+
+            for(let i=0;i<prodArr.length;i++){
+                str+="<li>"+prodArr[i].prodName+"*"+prodArr[i].prodPrice+"</li>";
+            }
+            ul.innerHTML=str;
+             }
+             function funClick(event){
+               var str=event.target.innerHTML;
+               console.log(str);
+               var arr=str.split("*");
+               txtName.value=arr[0];
+               txtPrice.value=arr[1];
+               txtName.readOnly=true;
+
+             }
+             function funUpdate(){
+                var pName=txtName.value;
+                var newPrice=txtPrice.value;
+                for(let i=0;i<prodArr.length;i++){
+                    if(pName==prodArr[i].prodName){
+                        prodArr[i].prodPrice=newPrice;
+                    }
+                }
+                txtName.value="";
+                txtName.readOnly=false;
+                txtPrice.value="";
+                display();
+
+             }
+             function funDelete(){
+                var pName=txtName.value;
+               // var newPrice=txtPrice.value;
+                for(let i=0;i<prodArr.length;i++){
+                    if(pName==prodArr[i].prodName){
+                      prodArr.splice(i,1); 
+                      }
+                 }
+                display();
+            }
+             var sum=0;
+            function funAddCart(){
+                var pName=txtName.value;
+                var pPrice=txtPrice.value;
+                sum=sum+parseInt(pPrice);
+               d1.innerHTML+="<br>Product Name-"+pName+"<br>Product price-"+pPrice+"<br>"; 
+                p1.innerHTML="Total=<b>"+sum+"</b>";
+            }
+             console.log("sum "+sum)
+             function funSort(){
+                    for(let i=0;i<prodArr.length;i++){
+                        for(let j=i+1;j<prodArr.length;j++);{
+                            if(prodArr[i].prodName>prodArr[j].prodName){
+                                var temp=prodArr[i].prodName;
+                                prodArr[i].prodName=prodArr[j].prodName;
+                                prodArr[j].prodName=temp;
+                            }
+                        }
+                      }
+                    console.log(prodArr);
+                 }
+                 </script>
+</body>
+</html>

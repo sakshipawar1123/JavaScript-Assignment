@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern</title>
+    <style>
+        body{
+            color:red;
+            background-color: lightblue;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click on the Result button and display the pyramid</h1>
+    <input type="button" value="Result" onClick="getResult()"><br>
+    <div id="d1"></div>
+    <script>
+        var d1=document.getElementById("d1");
+        function getResult(){
+            for(let i=1;i<=5;i++){      //outer loop
+                for(let j=5;j>i;j--){    ///for space
+                    document.write(" &nbsp; ");
+                }
+                for(let k=1;k<=((2*i)-1);k++){  //for stars
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            d1.innerHTML="Pattern is"+getResult;  
+         }
+         
+ </script>
+</body>
+</html>

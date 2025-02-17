@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Number:<input type="text" id="num1"><br> <br>
+    <input type="button" value="Click" onClick="funCheck()"><br>
+    
+    <script>
+        var num1=document.getElementById("num1");
+        var d1=document.getElementById("d1");
+        function funCheck(){
+            var d=num1.value;
+            for(let i=1;i<=10;i++){
+                var tb=i*d;
+                console.log(tb);
+            }
+            }
+  
+    </script>
+</body>
+</html>

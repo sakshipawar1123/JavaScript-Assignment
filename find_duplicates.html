@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:400px;
+            height:100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+   <h1>Find Duplicates</h1> 
+   <div id="d1"></div>
+   <script>
+    var d1=document.getElementById("d1");
+    const array = [1, 2, 3, 2, 4, 5, 4, 5];
+    const duplicates = array.filter((item, index) => array.indexOf(item) !== index);
+    d1.innerHTML+="<br>Original Array is:"+array;
+    d1.innerHTML+="<br>Duplicates are:"+duplicates;
+   // console.log(duplicates);
+   </script>
+</body>
+</html>

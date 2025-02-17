@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Palindrome Number </title> <!--read the same from forward or backward-->
+</head>
+<body>
+    <h1>Palindrome Number</h1>
+    <input type="button" value="Result" onClick="isPalindrome()">
+    <div id="d1"></div>
+    <script>
+        var d1=document.getElementById("d1");
+        function isPalindrome(){
+         let num =prompt("Enter a number:");
+             if (num == num.split("").reverse().join("")) {
+             document.write("It's a palindrome!");
+            } else {
+             document.write("Not a palindrome.");
+}
+      d1.innerHTML="palindrome is"+isPalindrome;
+        }
+</script>
+    
+</body>
+</html>
