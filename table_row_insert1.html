@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d2{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <table id="tb1" border="2"></table>
+    <input type="button" value="Add Row" onClick="funAddRow()">
+    <div id="d1"></div>
+    <div id="d2">
+        <input type="button" value="+" onclick="funPlus()">
+        <input type="button" value="Insert" onClick="funInsert()">
+    </div>
+    <script>
+        var studArr=[{rollno:1,name:"aaa",marks:10},
+                     {rollno:2,name:"bbb",marks:20}
+        ];
+        var table=document.getElementById("tb1");
+        function display(){
+                var str="<tr><td>Rollno</td><td>Name</td><td>Marks</td></tr>";
+                for(let i=0;i<studArr.length;i++){
+                    str+="<tr><td>"+studArr[i].rollno+"</td><td>"+studArr[i].name+"</td><td>"+studArr[i].marks+"</td></tr>";
+                    }
+                    table.innerHTML=str;
+                }
+                display();
+                var d1=document.getElementById("d1");
+                function funAddRow(){
+                    var hr1 = document.createElement("hr");
+
+                    var txtBox1=document.createElement("input");
+                    txtBox1.setAttribute("type","text");
+                    var brk1=document.createElement("br");
+
+                    var txtBox2=document.createElement("input");
+                    txtBox2.setAttribute("type","text");
+                    var brk2=document.createElement("br");
+
+                    var txtBox3=document.createElement("input");
+                    txtBox3.setAttribute("type","text");
+                    var brk3=document.createElement("br");
+
+                    d1.appendChild(txtBox1);
+                    d1.appendChild(brk1);
+
+                    d1.appendChild(txtBox2);
+                    d1.appendChild(brk2);
+
+                    d1.appendChild(txtBox3);
+                    d1.appendChild(brk3);
+
+                    d1.appendChild(hr1);
+
+                    d2.style.visibility="visible";
+
+                }
+                function funPlus(){
+                        funAddRow();
+                }
+                function funInsert(){
+                    var arr= document.querySelectorAll("input[type=text]");
+                    console.log(arr.length);
+                    for(let i=0; i<arr.length;i=i+3){
+                        var obj={rollno:arr[i].value,
+                                 name:arr[i+1].value,
+                                 marks:arr[i+2].value
+                        };
+                        console.log(obj);
+                        studArr.push(obj);
+
+                    }
+                    display();
+                    
+
+                }
+    </script>
+</body>
+</html>
