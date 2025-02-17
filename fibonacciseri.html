@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color:red;
+            font-size: 20px;
+        }
+        script{
+            color:blue;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Fibonacci Series </h1>
+    <input type="button" value="Result" onClick="getResult()"><br>
+    <div id="d1"></div>
+    <script>
+        var d1=document.getElementById("d1");
+        function getResult(){
+        var a=0,b=1;            //first we will get the two variable
+        document.write("<br>");
+        document.write(a); 
+        document.write(b); 
+        document.write("<br>")
+        for(var i=0;i<=5;i++){
+            var temp=a+b;         //here we are using swapping 
+            document.write(temp);
+            a=b;
+            b=temp;
+            document.write("<br>");
+        }
+        d1.innerHTML="Fibonacci Series is"+getResult;
+    }
+    </script>
+</body>
+</html>

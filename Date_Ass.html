@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background-color: beige;
+        }
+        #d1{
+            width:200px;
+            height:200px;
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    Name:<input type="text" id="txtname"><br> <br>
+    City:<input type="text" id="txtcity"> <br> <br>
+    DOB:<input type="text" id="txtdob"> <br> <br>
+    <input type="button" value="Click" onClick="funClick()">
+    </div><br><br>
+    <div id="d1"></div>
+    <script>
+         var name1=document.getElementById("txtname");
+         var city=document.getElementById("txtcity");
+         var dob=document.getElementById("txtdob");
+         var div=document.getElementById("d1");
+         var today=new Date();
+        
+
+         function funClick(){
+            //display name,city,date
+            console.log(name1);
+            console.log(name1.value);
+            div.innerHTML+="<br>Name:"+name1.value;
+            div.innerHTML+="<br>City:"+city.value;
+            div.innerHTML+="<br>dob:"+dob.value;
+            
+            
+            //calculate age
+               var str=dob.value;
+               console.log(str);
+               var strDate=str.split("/");
+               console.log(strDate[2]);
+               var FullYear=today.getFullYear();
+               console.log(FullYear);
+               var Age=FullYear-strDate[2];
+               console.log(Age);
+               div.innerHTML+="<br>Age is:"+Age;
+
+               //display Happy BirthDay
+               var day=strDate[0];
+               console.log(day);
+               var month=strDate[1];
+               console.log(month);
+               var FullYear=today.getDate();
+               console.log(FullYear);
+               var HalfYear=today.getMonth()+1;
+               console.log(HalfYear);
+               if(day==FullYear && month==HalfYear){
+                //document.write("<br> Happy Birthday!!!");
+                div.innerHTML+="<br>Happy Birthday!!!"
+               }else{
+                div.innerHTML+="<br>Today is Not Your Birthday!!!"
+               }
+               
+             }
+
+    </script>
+</body>
+</html>

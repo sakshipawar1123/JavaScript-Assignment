@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Display the list in table format</h1>
+    <table border="2" id="tb1">
+        <th id="th1"></th>
+        <tr id="tr1">
+            <td id="td1"></td>
+        </tr>
+       
+    </table>
+    <script>
+      
+      var arr_head=new Array("Index","Value");
+
+      var arr_colors=new Array("red","green","pink","black");
+      console.log(arr_head);
+      console.log(arr_colors);
+      var tb=document.getElementById("tb1");
+      var th=document.getElementById("th1");
+      var tr=document.getElementById("tr1");
+      var th=document.getElementById("td1");
+      var str="";
+      for(i=0;i<arr_head.length;i++){
+        str+="<th>"+arr_head[i]+"</th>"
+      }
+      //for(i=0;i<arr_colors.length;i++){
+       // str+="<tr><td>"+arr_colors[i]+"</td></tr>"
+     // }
+      for (var i = 0;i<arr_colors.length; i++) {
+        str += "<tr><td>" + i + "</td><td>" + arr_colors[i] + "</td></tr>";
+    }
+      tb.innerHTML=str;
+    </script>
+</body>
+</html>

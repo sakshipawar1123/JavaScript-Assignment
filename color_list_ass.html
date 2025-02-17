@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ass:1 (NODE TREE) 4/2/2025</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background-color: lightblue;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color List</h1>
+     Color:<input type="text" id="txtColor" placeholder="Enter Color"> <br><br>
+        <input type="button" value="Add" id="btn" onClick="funAdd()"><br><br>
+        <ul id="ul1"></ul>
+    <script>
+        var txtColor=document.getElementById("txtColor");
+        var btn=document.getElementById("btn");
+        var ul1=document.getElementById("ul1");
+        function funAdd(){
+        var color=txtColor.value;
+        var item=document.createElement("li");
+        item.textContent=color;
+        item.style.color=color;
+        ul1.appendChild(item);
+
+        }
+    </script>
+</body>
+</html>

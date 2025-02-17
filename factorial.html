@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        function factorial(num){
+            if(num==0 || num==1){
+                return 1;
+            }
+            else{
+                return num*arguments.callee(num-1);
+            }
+        }
+        var result=factorial(5);
+        console.log(result);
+       
+        //case 2
+        var fact=factorial;
+        factorial=null;
+
+        var res=fact(3);
+        console.log(res);
+
+        function funAdd(){
+            var sum=0;
+            for(let i=0;i<arguments.length;i++){
+                sum=sum+arguments[i];
+            }
+            console.log(sum);
+        }
+        funAdd(2,2,4,5);
+
+
+       
+        </script>
+</body>
+</html>

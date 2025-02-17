@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        #d2{
+            width:250px;
+            height:120px;
+            border:2px solid black;
+            background-color: bisque;
+        }
+        #d1{
+            width:250px;
+            height:120px;
+            border:2px solid black;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h2>To-Do List</h2>
+     <div id="d2"><br>
+    <input type="text" id="txtName" placeholder="Enter Name"> <br> <br>
+    <input type="button" value="Add" onClick="funAdd()">
+    </div>
+    <hr>
+    <div id="d1"></div>
+    <script>
+        function funAdd() {
+            var name = document.getElementById("txtName").value;
+            var d1=document.getElementById("d1");
+            var div = document.createElement("div");
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            div.appendChild(checkbox);
+
+            var span = document.createElement("span");
+            span.textContent = " " + name;
+            div.appendChild(span);
+
+            checkbox.onclick = function() {
+                if (checkbox.checked) {
+                    span.style.backgroundColor = "lightblue";
+                } else {
+                    span.style.backgroundColor = "";
+                }
+            };
+            d1.appendChild(div);
+         }
+    </script>
+
+</body>
+</html>

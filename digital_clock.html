@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pDate{
+            width:95px;
+            height:50px;
+            background-color: lightblue;
+        }
+        #pTime{
+            width:125px;
+            height:50px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+ <div>
+    <p id="pDate"></p>
+    <p id="pTime"></p>
+ </div>  
+ <script>
+    var pDate = document.getElementById("pDate");
+    var pTime = document.getElementById("pTime");
+    var today = new Date();
+    var month = today.getMonth()+1;
+    var currentDate = today.getDate()+"/"+month+"/"+today.getFullYear();
+   // console.log(currentDate);
+   pDate.innerHTML="<br>Date:"+currentDate;
+
+   var time = new Date();  
+   var h=time.getHours();  
+   var m=time.getMinutes();  
+   var s=time.getSeconds(); 
+   var t=time.getMilliseconds(); 
+   console.log(time);
+   pTime.innerHTML="<br>Time:"+h+":"+m+":"+s+":"+t;
+</script> 
+</body>
+</html>
