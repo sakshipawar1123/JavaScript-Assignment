@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Downward-Hollow-Pyramid</h1> 
+   <script>
+         let n=5;
+        for (var i = 0; i < n; i++) {
+            var row = "";
+    
+            // Print leading spaces
+            for (var j = 0; j < i; j++) {
+                row += " ";
+            }
+    
+            // Print stars and spaces inside
+            for (var j = 0; j < (2 * (n - i) - 1); j++) {
+                if (j == 0 || j == (2 * (n - i) - 2) || i == 0) {
+                    row += "*"; // First and last star in the row, and full row at the top
+                } else {
+                    row += " "; // Spaces in between
+                }
+            }
+    
+            console.log(row);
+        }
+    </script>
+</body>
+</html>
