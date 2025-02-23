@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Write a function that Reverse the order of words in a sentence without using the built-in reverse method </h5>
+    <script>
+        var sentence="Hello guys, good morning How are you??";
+        var result=reverseWords(sentence);
+        console.log(result);
+         function reverseWords(sentence){
+            var words=sentence.split(" ");
+            console.log(words);
+            var reverseSentence=" ";
+            for(let i=words.length-1; i>=0; i--){
+                reverseSentence=reverseSentence+words[i];
+                if(i>0){
+                    reverseSentence=reverseSentence+" ";
+                }
+            }
+            console.log(reverseSentence);
+           // return reverseSentence;
+
+         }
+    </script>
+</body>
+</html>
